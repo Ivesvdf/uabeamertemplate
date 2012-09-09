@@ -1,0 +1,71 @@
+\documentclass[pdflatex,compress,usenames, dvipsnames]{beamer}
+
+\usetheme[dark,framenumber,totalframenumber,notes=hide]{UniversiteitAntwerpen}
+
+\usepackage{lmodern}
+\usepackage{tikz}
+\usepackage[english]{babel}
+
+%\usepackage{gnuplot-lua-tikz}
+
+\usepackage{tikz}
+
+% the official UA font:
+\IfFileExists{fontspec.sty}{
+\usepackage{fontspec}
+\fontspec[Ligatures=TeX]{auto1}
+\setsansfont[Ligatures=TeX]{auto1}
+}
+
+
+\title{Example Title}
+\date{\today}
+
+\author{Ives~van~der~Flaas}
+
+%\renewcommand{\emph}{\textbf}
+% The following corrects spacing! There was too much space under the title and
+% this fixes it. 
+\let\OldFrameTitle\frametitle
+\renewcommand{\frametitle}[1]{\OldFrameTitle{#1} \vspace{-1cm}}
+
+% Use instead of \alert which looks like shit outside of blocks\ldots
+\newcommand{\coloremph}[1]{{\color{lime} #1}}
+\newcommand{\colorsubtle}[1]{{\color{uablue50} #1}}
+
+\newenvironment{description*}[0]
+{
+\begin{itemize}
+\let\OldItem\item
+\renewcommand{\item}[1]{\OldItem \coloremph{##1} \\ }
+}{
+\end{itemize}
+}
+
+\begin{document}
+\maketitle
+
+\begin{frame}
+	\frametitle{Some slide}
+	Content
+	\begin{enumerate}
+		\item Item 1
+		\item Item 2
+	\end{enumerate}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Another slide}
+	\begin{description*}
+		\item{Chrome} A browser made by Google
+		\item{Firefox} A browser made by Mozilla
+		\item{Internet Explorer} A browser made by Microsoft
+	\end{description*}
+\end{frame}
+
+\begin{frame}
+	\begin{center}
+		\Huge Questions?
+	\end{center}
+\end{frame}
+\end{document}
