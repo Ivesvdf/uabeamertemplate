@@ -1,8 +1,22 @@
 uabeamertemplate
 ================
 
-A nice .tex template for people using Nico Schlömer's uabeamer latex beamer style
+A nice .tex template for people using Nico Schlömer's uabeamer latex beamer style.
 
+This assumes that if you have the fontspec package, you'll also have the Underware Auto1 font. 
+If you do have the Auto1 font, be sure to compile with XeTeX or LuaLaTeX. If not, just delete 
+
+    % the official UA font:
+    \IfFileExists{fontspec.sty}{
+    \usepackage{fontspec}
+    \fontspec[Ligatures=TeX]{auto1}
+    \setsansfont[Ligatures=TeX]{auto1}
+    }
+    
+and be sad about how your font sucks. 
+
+Commands and Environments
+-------------------------
 Some notable commands:
 
     \coloremph{text}
